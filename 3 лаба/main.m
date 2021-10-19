@@ -1,39 +1,43 @@
-clc
-clear all
 
-dx = 0.0005;
-e = 0.00002;
+clc % чистим терминал
+clear all % удалаем все переменные с рабочей области
 
-x = -3:0.01:0
+dx = 0.0005; % Шаг интегрирования
+e = 0.00002; % «Точность» ε 
+
+x = -3:0.01:0; % задаём диапазон от -3 до 0 с шагом 0.01
 
 i = 0;
-for x_ = x
+for x_ = x % запускаем цикл с диапазоном x (8 строка)
     i = i + 1;
-    if x_ < -2
+    if x_ < -2 % на промежутке от -3 до -2
         y(i) = -1;
-    elseif x_ < -1
+    elseif x_ < -1 % на промежутке от -2 до -1
+        % код для расчитывания интегралла методом прямоугольников
         y(i) = 0;
         for z = -2:dx:x_
             y(i) = y(i) + z + (1./sin(z));
         end
         y(i) = y(i) * dx;
-    else
+    else % на промежутке от -1 до 0
+        % код для рассчитывания сумы
         y(i) = -1;
         n = 0;
-        x_n = 2 * e;
+        x_n = 2 .* e;
         factI = 1;
         xPow = 1;
         while abs(x_n) >= e
-            x_n = xPow / factI;
+            x_n = xPow ./ factI;
             y(i) = y(i) + x_n;
             n = n + 1;
-            xPow = xPow * (x_ ^ (2 * n + 1));
-            factI = factI * (2 * n);
+            xPow = xPow .* (x_ ^ (2 .* n + 1));
+            factI = factI .* (2 .* n);
         end
     end
 end
 
+% рисуем график
 plot(x,y) 
-xlabel x 
-ylabel y 
+xlabel("x") 
+ylabel("y") 
 grid on 
