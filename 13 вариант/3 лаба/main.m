@@ -31,7 +31,11 @@ for x_ = x % запускаем цикл с диапазоном x (8 строк
             y(i) = y(i) + x_n;
             n = n + 1;
             xPow = xPow .* (x_ ^ (2 .* n + 1));
-            factI = factI .* (2 .* n);
+            fact = 1;
+            for j = 1:(2 .* n)
+                fact = fact * j
+            end
+            factI = factI .* fact;
         end
     end
 end
