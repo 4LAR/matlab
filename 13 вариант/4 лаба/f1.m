@@ -18,19 +18,20 @@ function out = f1(x_)
             % код для рассчитывания сумы
             out = -1;
             n = 0;
-            x_n = 2 .* e;
-            factI = 1;
-            xPow = -1;
+            x_n = x_;
+%             factI = 1;
+%             xPow = x_;
             while abs(x_n) >= e
-                x_n = xPow ./ factI;
+                %x_n = xPow ./ factI;
                 out = out + x_n;
                 n = n + 1;
-                xPow = xPow .* (x_ ^ (2 .* n + 1));
-                fact = 1;
-                for j = 1:(2 .* n)
-                    fact = fact * j;
-                end
-                factI = factI .* fact;
+                %xPow = xPow .* (x_ ^ (2 .* n + 1));
+                %fact = 1;
+                %for j = 1:(2 .* n)
+                %    fact = fact * j;
+                %end
+                %factI = factI .* fact;
+                x_n = x_n .* x_ ^ 2/ ((4 .* n) .^ 2 - 2 .* n);
             end
         end
     end
