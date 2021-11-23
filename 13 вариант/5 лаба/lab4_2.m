@@ -4,8 +4,8 @@
 function [out1, out2] = lab4_2()
     ok = 0;
     while ok ~= 1
-        inp1 = lab4_1('Введите первое число: ');
-        inp2 = lab4_1('Введите второе число: ');
+        inp1 = lab4_1('Введите xMax: ');
+        inp2 = lab4_1('Введите xMin: ');
         if inp1 == inp2
             disp('Числа одинаковые')
         elseif mod(inp1, inp2) ~= 0

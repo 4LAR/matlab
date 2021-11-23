@@ -1,22 +1,31 @@
-clear all
-clc
 
-%lab4_1('Введите число: ')
+%%%% Функции используемые в программе
+
+%a = lab4_1('Введите число: ')
 %[a, b] = lab4_2()
 
-%x=0:10; 
+%x=0:10;    
 %y=sin(x); 
 %printtable(x,y)
 
+%c = input_step(a, b);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+clear all
+clc
+
 func = input('Введите функцию: ', 's');
 
-[xMin, xMax] = lab4_2();
-x_v = xMax:0.01:xMin;
+[xMax, xMin] = lab4_2();
+step = input_step(xMin, xMax);
+%step = 0.01;
+x_v = xMin:step:xMax;
 i = 0;
 for x = x_v
     i = i + 1;
-    y(i) = str2num(func);
-    disp(y(i))
+    y(i) = eval(func);
 end
+printtable(x_v, y)
 
-plot(x, y)
+plot(x_v, y)
