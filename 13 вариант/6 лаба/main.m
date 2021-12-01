@@ -16,7 +16,7 @@ clear all
 clc
 
 dx = 0.0005; % Шаг интегрирования
-
+% x + (1./sin(x))
 func = input('Введите функцию: ', 's');
 
 [xMax, xMin] = lab4_2();
@@ -27,11 +27,13 @@ i = 0;
 for x_ = x_v
     i = i + 1;
     y(i) = 0;
-    for x = xMin:dx:x_
-        y(i) = y(i) + eval(func);
-    end
-    y(i) = y(i) * dx;
+    %for (x = xMin:dx:x_) 
+    %    y(i) = y(i) + eval(func); 
+    %end
+    eval(strcat('for (x = xMin:dx:x_) y(i) = y(i) + ', func, '; end'));
+    y(i) = y(i) + dx;
+    
 end
-printtable(x_v, y)
+printtable(x_v, y, func)
 
 plot(x_v, y)
