@@ -17,12 +17,11 @@ clear all
 clc
 
 func = input('Введите функцию: ', 's');
-first = 1;
-minFunc = 0;
-maxFunc = 0;
+
 [xMax, xMin] = lab4_2();
 step = input_step(xMin, xMax);
 x_v = xMin:step:xMax;
+
 i = 0;
 for x_ = x_v
     i = i + 1;
