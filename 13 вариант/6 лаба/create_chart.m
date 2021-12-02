@@ -13,7 +13,7 @@ function create_chart(x_v, y, xMin, xMax)
     %x = 0:length(x1) - 1;
     
     plot(x1, y1, '-c', 'LineWidth', 2.5);
-    plot(x_v, y, '.y', 'LineWidth', 2.5);
+    plot(x_v, y, '.y', 'MarkerSize', 10.5);
     
     
     % отображение минимума и максимума в 1 графике
