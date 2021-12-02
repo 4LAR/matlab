@@ -52,25 +52,6 @@ end
 printtable(x_v, y, func)
 
 %plot(x_v, y)
-subplot(2,1,1)
-hold on
 
-n_app = 300;
-y_i = interpft(y, n_app);
-dx_i = length(y_i) / n_app;
-x_i = xMin:0.267:xMax;
-
-%plot(x_i, y_i, '-c', 'LineWidth', 2.5);
-plot(x_v, y, '-c', 'LineWidth', 2.5);
-plot(x_v, y, '.y', 'LineWidth', 2.5);
-
-xMaxFunc = xMin:xMax;
-plot(xMaxFunc, ones(1, length(xMaxFunc)) * maxFunc, '--r', 'LineWidth', 1.5);
-plot(xMaxFunc, ones(1, length(xMaxFunc)) * minFunc, '--r', 'LineWidth', 1.5);
-
-grid on
-
-subplot(2,1,2)
-hold on
-plot(x_v, y, '--c', 'LineWidth', 2.5);
+create_chart(x_v, y, minFunc, maxFunc, xMin, xMax)
 grid on
