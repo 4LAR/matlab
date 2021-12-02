@@ -13,6 +13,7 @@ function out = input_step(xMin, xMax)
            inp(point) = '.'; 
         end
         inp = str2double(inp);
+        
         if inp > xMax
             disp('Число больше xMax (Число больше границы интервала)')
         elseif inp > (xMax - xMin)
