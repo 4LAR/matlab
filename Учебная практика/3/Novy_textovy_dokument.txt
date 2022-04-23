@@ -1,0 +1,72 @@
+clc; clear;
+a = input ('Введите нижний предел интеграла(0.3): ', 's');
+while( isnan(str2double(a)))
+disp ('Введите цифру');
+a = input('Введите нижний предел интеграла: ','s');
+end
+a=str2double(a);
+b = input ('Введите верхний предел интеграла(1.3): ', 's');
+while( isnan(str2double(b)))
+disp ('Введите цифру');
+b = input('Введите верхний предел интеграла: ','s');
+end
+b=str2double(b);
+while (a>b)
+    disp('Неверно задана область интегрирования, измените a и b')
+    a = input ('Введите нижний предел интеграла: ', 's');
+    while( isnan(str2double(a)))
+    disp ('Введите цифру');
+    a = input('Введите нижний предел интеграла: ','s');
+    end
+    a=str2double(a);
+    b = input ('Введите верхний предел интеграла: ', 's');
+    while( isnan(str2double(b)))
+    disp ('Введите цифру');
+    b = input('Введите верхний предел интеграла: ','s');
+    end
+    b=str2double(b);
+end
+c = input ('Введите коэфициент с(0.042): ', 's');
+while( isnan(str2double(c)))
+disp ('Введите цифру');
+c = input('Введите коэфициент с: ','s');
+end
+c=str2double(c);
+d = input ('Введите коэфициент d(0.8): ', 's');
+while( isnan(str2double(d)))
+disp ('Введите цифру');
+d = input('Введите коэфициент d: ','s');
+end
+d=str2double(d);
+n = input ('Введите количество шагов n: ', 's');
+while( isnan(str2double(n))|| str2double(n)<=0)
+disp ('Введите цифру');
+n = input('Введите коэфициент h: ','s');
+end
+n=str2double(n);
+h=abs(b-a)/n;
+h1=abs(b-a)/(2*n);
+x=a:h:b;
+x1=a:h1:b;
+F=0;
+k=a+h;
+m=b-h;
+k1=a+h1;
+m1=b-h1;
+while k<m
+F=F+h*(1/((c*k^2+d)^(1/2)));
+k=k+h;
+end
+F=F+h*0.5*(1/(c*a^2+d)^(1/2)+1/(c*b^2+d)^(1/2));
+F2=0;
+while k1<m1
+F2=F2+h1*(1/((c*k1^2+d)^(1/2)));
+k1=k1+h1;
+end
+F2=F2+h1*0.5*(1/(c*a^2+d)^(1/2)+1/(c*b^2+d)^(1/2));
+disp('Погрешность равна')
+J=F2-F
+y=(1./(0.042.*x.^2+0.8).^(1/2));
+F1=trapz(x,y);%встроенная функция матлаб
+F
+F1
